@@ -135,3 +135,12 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+gen/
+
+# VS Code
+.vscode/
