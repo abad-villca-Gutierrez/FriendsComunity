@@ -65,3 +65,54 @@ function conectarWebSocket(nombre, tipoLogin) {
     loginDiv.style.display = 'block';
   };
 }
+
+// Actualizar lista de usuarios en línea
+function actualizarListaUsuarios(usuarios) {
+  contadorUsuariosSpan.textContent = usuarios.length;
+  listaUsuariosDiv.innerHTML = '';
+  usuarios.forEach(usuario => {
+    const div = document.createElement('div');
+    div.className = 'usuario-item';
+    div.innerHTML = `<span class="usuario-color" style="background-color: ${usuario.color}"></span><span class="usuario-nombre">${usuario.nombre}</span>`;
+    listaUsuariosDiv.appendChild(div);
+  });
+}
+
+// mostrar mensaje de chat
+function mostrarMensajeChat(usuario, mensaje, color) {
+  const divMensaje = document.createElement('div');
+  divMensaje.className = 'mensaje-chat';
+  const esMiMensaje = (usuario === datosUsuario?.nombre);
+  
+  const cabecera = document.createElement('div');
+  cabecera.className = 'cabecera-mensaje';
+  const nombreSpan = document.createElement('span');
+  nombreSpan.className = 'nombre-usuario';
+  nombreSpan.textContent = usuario;
+  nombreSpan.style.color = color;
+  cabecera.appendChild(nombreSpan);
+  
+  const textoDiv = document.createElement('div');
+  textoDiv.className = 'texto-mensaje';
+  textoDiv.textContent = mensaje;
+  
+  if (esMiMensaje) {
+    divMensaje.style.alignItems = 'flex-end';
+    textoDiv.style.backgroundColor = '#DCF8C6';
+  } else {
+    textoDiv.style.backgroundColor = color + '20';
+  }
+  
+  divMensaje.appendChild(cabecera);
+  divMensaje.appendChild(textoDiv);
+  areaMensajes.appendChild(divMensaje);
+  areaMensajes.scrollTop = areaMensajes.scrollHeight;
+}
+
+function mostrarMensajeSistema(mensaje) {
+  const div = document.createElement('div');
+  div.className = 'mensaje-sistema';
+  div.textContent = mensaje;
+  areaMensajes.appendChild(div);
+  areaMensajes.scrollTop = areaMensajes.scrollHeight;
+}
