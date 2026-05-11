@@ -116,3 +116,46 @@ function mostrarMensajeSistema(mensaje) {
   areaMensajes.appendChild(div);
   areaMensajes.scrollTop = areaMensajes.scrollHeight;
 }
+
+// Enviar mensaje
+function enviarMensaje() {
+  const texto = mensajeInput.value.trim();
+  if (texto === '') return;
+  if (socket && socket.readyState === WebSocket.OPEN) {
+    socket.send(texto);
+    mensajeInput.value = '';
+    mensajeInput.focus();
+  }
+}
+
+// Eventos login
+btnNombrePropio.onclick = () => {
+  const nombre = document.getElementById('nombrePersonal').value.trim();
+  if (nombre === '') {
+    alert('Por favor ingresa un nombre');
+    return;
+  }
+  conectarWebSocket(nombre, 'personal');
+};
+
+btnGoogle.onclick = () => {
+  const email = document.getElementById('emailGoogle').value.trim();
+  let nombre = '';
+  
+  if (email !== '' && email.includes('@')) {
+    // Extraer nombre del email (lo que va antes del @)
+    nombre = email.split('@')[0];
+    // Capitalizar primera letra
+    nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+  } else {
+    // Asignar nombre aleatorio si el usuario no quiera entrar por los otros metodos
+    nombre = generarNombreAleatorio();
+  }
+  conectarWebSocket(nombre, 'google');
+};
+
+// Eventos envío
+btnEnviar.onclick = enviarMensaje;
+mensajeInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') enviarMensaje();
+});
