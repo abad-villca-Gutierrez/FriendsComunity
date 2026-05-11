@@ -1,4 +1,4 @@
-# FriendsComunity
+># FriendsComunity
 # Sistema de Chat Colaborativo
 ## Documentación actualizada
 
