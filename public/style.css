@@ -31,3 +31,77 @@ h2 {
     background: #128C7E;
     font-size: 1.2em;
 }
+
+
+/* Login */
+#login {
+    padding: 30px;
+}
+
+.opciones-login {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.opcion {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.opcion h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.separador {
+    font-size: 18px;
+    font-weight: bold;
+    color: #999;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button:hover {
+    background: #128C7E;
+}
+
+.google-btn {
+    background: #4285f4;
+}
+
+.google-btn:hover {
+    background: #3367d6;
+}
+
+small {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #666;
+}
