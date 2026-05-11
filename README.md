@@ -1,5 +1,6 @@
 # FriendsComunity
 # Sistema de Chat Colaborativo
+## Documentación actualizada
 
 Proyecto desarrollado con Node.js y WebSocket para comunicación en tiempo real.
 
