@@ -22,3 +22,46 @@ function generarNombreAleatorio() {
   const num = Math.floor(Math.random() * 1000);
   return `${adjetivos[Math.floor(Math.random() * adjetivos.length)]}${sustantivos[Math.floor(Math.random() * sustantivos.length)]}_${num}`;
 }
+
+// Conectar WebSocket
+function conectarWebSocket(nombre, tipoLogin) {
+  datosUsuario = { nombre: nombre, tipoLogin: tipoLogin };
+  
+  const protocolo = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  socket = new WebSocket(`${protocolo}//${window.location.host}`);
+  
+  socket.onopen = () => {
+    socket.send(JSON.stringify(datosUsuario));
+    loginDiv.style.display = 'none';
+    chatDiv.style.display = 'grid';
+    nombreUsuarioSpan.textContent = nombre;
+    mensajeInput.focus();
+  };
+  
+  socket.onmessage = (evento) => {
+    const datos = JSON.parse(evento.data);
+    
+    if (datos.tipo === 'chat') {
+      mostrarMensajeChat(datos.usuario, datos.mensaje, datos.color);
+    } 
+    else if (datos.tipo === 'sistema') {
+      mostrarMensajeSistema(datos.mensaje);
+    }
+    else if (datos.tipo === 'historial') {
+      datos.mensajes.forEach(msg => {
+        if (msg.tipo === 'chat') mostrarMensajeChat(msg.usuario, msg.mensaje, msg.color);
+        else if (msg.tipo === 'sistema') mostrarMensajeSistema(msg.mensaje);
+      });
+    }
+    else if (datos.tipo === 'usuarios_en_linea') {
+      actualizarListaUsuarios(datos.usuarios);
+    }
+  };
+  
+  socket.onerror = () => mostrarMensajeSistema('❌ Error de conexión');
+  socket.onclose = () => {
+    mostrarMensajeSistema('🔌 Conexión perdida. Recarga la página.');
+    chatDiv.style.display = 'none';
+    loginDiv.style.display = 'block';
+  };
+}
