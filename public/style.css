@@ -234,3 +234,9 @@ small {
     padding: 10px;
 }
 
+#btnEnviar {
+    width: auto;
+    margin: 0;
+    padding: 10px 25px;
+}
+
