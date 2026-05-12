@@ -1,1 +1,63 @@
-aaaa
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FriendsCommunity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="contenedor">
+    <h1>💬 FriendsCommunity</h1>
+    
+    <!-- Pantalla de login -->
+    <div id="login">
+      <h2>Ingresa a FriendsCommunity</h2>
+      
+      <div class="opciones-login">
+        <!-- Ingreso con correo o un nombre -->
+       <div class="opcion">
+          <h3>✏️ Con nombre</h3>
+          <input type="text" id="nombrePersonal" placeholder="nombre de usuario">
+          <button id="btnNombrePropio">Ingresar</button>
+        </div>
+        
+        <div class="separador">o</div>
+        
+        <!-- Ingreso con Google -->
+        <div class="opcion">
+          <h3>🔐 Con Google</h3>
+          <input type="text" id="emailGoogle" placeholder="Dirección de correo">
+          <button id="btnGoogle">Ingresar con Google</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pantalla del chat -->
+    <div id="chat" style="display:none;">
+      <div id="estado">
+        <span>👤 Conectado: <strong id="nombreUsuario"></strong></span>
+      </div>
+      
+      <!-- Panel de usuarios en línea -->
+      <div id="panelUsuarios">
+        <div id="usuariosTitulo">
+            <span> En línea</span>
+            <span id="contadorUsuarios" class="contador-badge">0</span>
+        </div>    
+        <div id="listaUsuarios"></div>
+      </div>
+      
+      <div id="areaMensajes">
+        <!-- Mensajes -->
+      </div>
+      
+      <div id="entrada">
+        <input type="text" id="mensaje" placeholder="Tu mensaje...">
+        <button id="btnEnviar">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="client.js"></script>
+</body>
+</html>

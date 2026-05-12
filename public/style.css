@@ -1,3 +1,250 @@
-/* Estilos generales del sistema */
-/* Área visual del chat */
-/* Diseño de mensajes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e5e5e5;
+  padding: 20px;
+}
+
+#contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+h1, h2 {
+  text-align: center;
+  padding: 15px;
+  background: #075E54;
+  color: white;
+  margin: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+h2 {
+  background: #128C7E;
+  font-size: 1.2em;
+}
+
+/* Login */
+#login {
+  padding: 30px;
+}
+
+.opciones-login {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.opcion {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.opcion h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.separador {
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button:hover {
+  background: #128C7E;
+}
+
+.google-btn {
+  background: #4285f4;
+}
+
+.google-btn:hover {
+  background: #3367d6;
+}
+
+small {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #666;
+}
+
+/* Chat -panel de usuarios */
+#chat {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 600px;
+}
+
+#estado {
+  grid-column: 1 / -1;
+  background: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+#panelUsuarios {
+  grid-row: 2;
+  background: #f5f5f5;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+#usuariosTitulo {
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contador-badge {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#listaUsuarios {
+  font-size: 13px;
+}
+
+.usuario-item {
+  padding: 6px 10px;
+  margin: 4px 0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usuario-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.usuario-nombre {
+  flex: 1;
+}
+
+#areaMensajes {
+  grid-row: 2;
+  overflow-y: auto;
+  padding: 15px;
+  background: #fafafa;
+}
+
+.mensaje-chat {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecera-mensaje {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.nombre-usuario {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.texto-mensaje {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+  display: inline-block;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Mensajes del sistema*/
+.mensaje-sistema {
+  text-align: center;
+  padding: 5px;
+  margin: 8px 0;
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+#entrada {
+  grid-column: 1 / -1;
+  display: flex;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #ccc;
+  gap: 10px;
+}
+
+#mensaje {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+}
+
+#btnEnviar {
+  width: auto;
+  margin: 0;
+  padding: 10px 25px;
+}
+#areaMensajes::-webkit-scrollbar, #panelUsuarios::-webkit-scrollbar {
+  width: 6px;
+}
+#areaMensajes::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#areaMensajes::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
