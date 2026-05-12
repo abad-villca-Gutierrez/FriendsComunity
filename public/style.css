@@ -105,3 +105,104 @@ small {
     font-size: 11px;
     color: #666;
 }
+
+/* Chat -panel de usuarios */
+#chat {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 600px;
+}
+
+#estado {
+    grid-column: 1 / -1;
+    background: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+#panelUsuarios {
+    grid-row: 2;
+    background: #f5f5f5;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#usuariosTitulo {
+    font-weight: bold;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contador-badge {
+    background: #e0e0e0;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+#listaUsuarios {
+    font-size: 13px;
+}
+
+.usuario-item {
+    padding: 6px 10px;
+    margin: 4px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.usuario-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.usuario-nombre {
+    flex: 1;
+}
+
+#areaMensajes {
+    grid-row: 2;
+    overflow-y: auto;
+    padding: 15px;
+    background: #fafafa;
+}
+
+.mensaje-chat {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera-mensaje {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.nombre-usuario {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.texto-mensaje {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 70%;
+    word-wrap: break-word;
+    display: inline-block;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
